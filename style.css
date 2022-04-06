@@ -1,0 +1,65 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.background {
+  position: relative;
+	height: 90vh;
+	width: 100vw;
+	overflow: hidden;
+	background: url('images/background-img.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.author{
+  position: absolute;
+  bottom: 1vh;
+  left : 0;
+  width: 100vw;
+}
+#birdId{
+	height: 7vh;
+	width: 12vw;
+	position: absolute;
+	top: 40vh;
+	left: 15vw;
+	z-index: 100;
+}
+button{
+  padding: 1vh 1vw;
+  font-size: 10vw;
+}
+.pipe {
+	position: absolute;
+	left: 100vw;
+	width: 10vw;
+	background: radial-gradient(lightgreen 50%, green);
+	border: 5px solid black;
+	z-index: 10;
+}
+.pipeup{
+  top: 0;
+}
+.pipedown{
+  bottom: 0;
+}
+.score {
+  position: absolute;
+  top: 0;
+  left: 37%;
+	z-index: 100;
+	color: white;
+	-webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+	margin-top: 10vh;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.scoreStyle {
+	color: gold;
+	font-weight: bold;
+	font-size: 5vh;
+}
