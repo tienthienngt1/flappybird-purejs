@@ -9,6 +9,12 @@ let birdProps = bird.getBoundingClientRect()
 let topInitial = birdProps.y
 let backgroundProps = background.getBoundingClientRect()
 scoreVal.innerHTML = score_val
+let dieSound = new Audio("sounds/die.mp3")
+let pointSound = new Audio("sounds/point.mp3")
+let backgroundSound = new Audio("sounds/faded.mp3")
+
+backgroundSound.play()
+backgroundSound.loop = true
 
 button.innerHTML="Play"
 
@@ -50,6 +56,7 @@ function play() {
     }
     if(birdProps.bottom > backgroundProps.height){
       statusGame = "die"
+      dieSound.play()
     } else {
       birdProps.y += grativy 
       bird.style.top = birdProps.y + "px"
@@ -96,14 +103,17 @@ function play() {
       if(birdProps.right > pipeProps.left && birdProps.left < pipeProps.right){
         if(e.className == "pipeup pipe" && birdProps.top < pipeProps.bottom){
           statusGame="die"
+          dieSound.play()
         }
         if(e.className == "pipedown pipe" && birdProps.bottom > pipeProps.top){
           statusGame="die"
+          dieSound.play()
         }
         if(e.getAttribute("tittle")!=id){
           id = e.getAttribute("tittle")
           score_val++
           scoreVal.innerHTML = score_val 
+          pointSound.play()
         }
       }
       if(birdProps.left > pipeProps.right){
