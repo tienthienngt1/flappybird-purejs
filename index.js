@@ -72,7 +72,7 @@ function play() {
       pipeQuantity = 0;
       let pipeup = document.createElement("div")
       let pipedown = document.createElement("div")
-      let heightRandom = Math.floor(Math.random() * 40) + 20
+      let heightRandom = Math.floor(Math.random() * 30) + 30
       let idRandom = Math.floor(Math.random() *9999999 + 0)
       pipeup.className = "pipeup pipe"
       pipedown.className = "pipedown pipe"
