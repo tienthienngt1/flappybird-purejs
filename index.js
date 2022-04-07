@@ -19,6 +19,7 @@ backgroundSound.loop = true
 button.innerHTML="Play"
 
 button.addEventListener("click", function() {
+  backgroundSound.play()
   if(statusGame === "waiting"){
     statusGame = "playing"
     button.hidden = true
