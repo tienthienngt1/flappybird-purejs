@@ -1,4 +1,4 @@
-let moveSpeed = 1.7, grativy = 3, stepBird = 70, pipeQuantity = 0, score_val = 0, moveBirdId, createPipeId, movePipeId;
+let moveSpeed = 2, grativy = 3, stepBird = 70, pipeQuantity = 0, score_val = 0, moveBirdId, createPipeId, movePipeId;
 let statusGame = "waiting";
 let bird = document.querySelector('#birdId')
 let background = document.querySelector(".background")
@@ -13,12 +13,23 @@ let dieSound = new Audio("sounds/die.mp3")
 let pointSound = new Audio("sounds/point.mp3")
 let backgroundSound = new Audio("sounds/faded.mp3")
 
-backgroundSound.play()
 backgroundSound.loop = true
 
 button.innerHTML="Play"
 
+//set viewport for mobile
+let view = document.querySelector("meta[name=viewport]")
+let screen = document.documentElement.clientWidth
+if (screen < 300){
+  view.setAttribute("content", "width=device-width, initial-scale=0.5, user-scalable=no")
+}else if(screen < 500){
+  view.setAttribute("content", "width=device-width, initial-scale=0.7, user-scalable=no")
+}else{
+  view.setAttribute("content", "width=device-width, initial-scale=1.0, user-scalable=no")
+ } 
+
 button.addEventListener("click", function() {
+console.log (view)
   backgroundSound.play()
   if(statusGame === "waiting"){
     statusGame = "playing"
@@ -73,7 +84,7 @@ function play() {
       pipeQuantity = 0;
       let pipeup = document.createElement("div")
       let pipedown = document.createElement("div")
-      let heightRandom = Math.floor(Math.random() * 30) + 30
+      let heightRandom = Math.floor(Math.random() * 300) + 50
       let idRandom = Math.floor(Math.random() *9999999 + 0)
       pipeup.className = "pipeup pipe"
       pipedown.className = "pipedown pipe"
@@ -82,8 +93,10 @@ function play() {
       pipeupProps = pipeup.getBoundingClientRect()
       pipedownProps = pipedown.getBoundingClientRect()
       
-      pipedown.style.height = heightRandom + "vh"
-      pipeup.style.height = 90 - heightRandom - 25 + "vh"
+      pipedown.style.height = heightRandom + "px"
+      pipedown.style.left = "500px"
+      pipeup.style.height = 500 - heightRandom - 100 + "px"
+      pipeup.style.left = "500px"
       background.appendChild(pipeup)
       background.appendChild(pipedown)
     }
@@ -97,8 +110,10 @@ function play() {
     let pipe = document.querySelectorAll(".pipe")
     pipe.forEach((e) => {
       let pipeProps = e.getBoundingClientRect()
-      e.style.left = pipeProps.left - moveSpeed + "px"
-      if(pipeProps.right <0){
+      let left = parseInt(e.style.left)
+      e.style.left = left - moveSpeed + "px"
+      if(left < -70){
+        console.log (left)
         e.remove()
       }
       if(birdProps.right > pipeProps.left && birdProps.left < pipeProps.right){
@@ -116,8 +131,6 @@ function play() {
           scoreVal.innerHTML = score_val 
           pointSound.play()
         }
-      }
-      if(birdProps.left > pipeProps.right){
       }
     })
     movePipeId = requestAnimationFrame(movePipe)

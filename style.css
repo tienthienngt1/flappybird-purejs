@@ -6,8 +6,8 @@
 }
 .background {
   position: relative;
-	height: 90vh;
-	width: 100vw;
+	height: 600px;
+	width: 500px;
 	overflow: hidden;
 	background: url('images/background-img.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -17,26 +17,26 @@
 }
 .author{
   position: absolute;
-  top: 5vh;
-  left : 0;
-  width: 98vw;
+  bottom: 20px;
+  left : 50px;
+  width: 400px;
 }
 #birdId{
-	height: 7vh;
-	width: 12vw;
+	height: 60px;
+	width: 60px;
 	position: absolute;
-	top: 40vh;
-	left: 15vw;
+	top: 250px;
+	left: 100px;
 	z-index: 100;
 }
 button{
-  padding: 1vh 1vw;
-  font-size: 10vw;
+  padding: 10px 20px;
+  font-size: 30px;
 }
 .pipe {
 	position: absolute;
-	left: 100vw;
-	width: 10vw;
+	right: 0px;
+	width: 70px;
 	background: radial-gradient(#3e8adfbb 50%, #84dd88);
 	border: 5px solid black;
 	z-index: 10;
@@ -45,7 +45,7 @@ button{
   top: 0;
 }
 .pipedown{
-  bottom: 0;
+  bottom: 0px;
 }
 .score {
   position: absolute;
@@ -61,5 +61,5 @@ button{
 .scoreStyle {
 	color: gold;
 	font-weight: bold;
-	font-size: 5vh;
+	font-size: 40px;
 }
