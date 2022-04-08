@@ -5,6 +5,10 @@
 	font-family: Arial, Helvetica, sans-serif;
     user-select: none;
 }
+body{
+	user-select: none;
+	background: #3d3d3d;
+}
 .background {
    position: relative;
 	height: 600px;
