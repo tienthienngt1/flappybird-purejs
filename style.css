@@ -6,8 +6,9 @@
     user-select: none;
 }
 .background {
-  position: relative;
+   position: relative;
 	height: 600px;
+    background-color: darkgrey;
 	width: 500px;
 	overflow: hidden;
 	background: url('images/background-img.jpeg') no-repeat center center fixed;
